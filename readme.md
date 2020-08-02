@@ -1,5 +1,6 @@
 # Reactの実行方法
 コマンドで以下を入力
-``` cd gpsgame 
+``` 
+cd gpsgame 
   npm start
 ```
