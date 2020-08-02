@@ -2,5 +2,5 @@
 コマンドで以下を入力
 ``` 
 cd gpsgame 
-  npm start
+npm start
 ```
