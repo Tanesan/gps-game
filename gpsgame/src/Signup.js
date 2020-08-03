@@ -230,6 +230,33 @@ render() {
             >
               Sign Up
             </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={this.classes.submit}
+            >
+              Google
+            </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={this.classes.submit}
+            >
+              FaceBook
+            </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={this.classes.submit}
+            >
+              Apple
+            </Button>
           </form>
         </div>
       </Container>
