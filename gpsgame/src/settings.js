@@ -226,22 +226,73 @@ export default function Settings(props) {
       </form>
       </TabPanel>
       <TabPanel value={value} index={1}>
+      <Box fontSize="h4.fontSize" mb="1rem">
         Password
+        </Box>
+        <Box fontWeight={500}>
+        If you want to change your password ,please write here.
+        </Box>
+      <form className={classes.root} className="settingform" autoComplete="off">
+        <Box mt="1rem">
+      <TextField id="Password" 
+              label="Password"
+              margin="normal"
+              type="password"
+              required
+              fullWidth
+              autoFocus
+               />
+               </Box>
+        <Box mt="1rem">
+                 <TextField id="Password" 
+              label="確認"
+              margin="normal"
+              type="password"
+              required
+              fullWidth
+              autoFocus
+               />
+               </Box>
+        <Box mt="1rem">
+
+<Button variant="contained" color="primary">
+  Save Changes
+</Button>
+</Box>
+</form>
       </TabPanel>
       <TabPanel value={value} index={2}>
+      <Box fontSize="h4.fontSize" mb="1rem">
       Privacy and safety
+      </Box>
       </TabPanel>
       <TabPanel value={value} index={3}>
+      <Box fontSize="h4.fontSize" mb="1rem">
       Email notifications
+      </Box>
       </TabPanel>
       <TabPanel value={value} index={4}>
+      <Box fontSize="h4.fontSize" mb="1rem">
       Web notifications
+      </Box>
       </TabPanel>
       <TabPanel value={value} index={5}>
+      <Box fontSize="h4.fontSize" mb="1rem">
       Your data
+      </Box>
       </TabPanel>
       <TabPanel value={value} index={6}>
+      <Box fontSize="h4.fontSize" mb="1rem">
       Delete account
+      </Box>
+      <Box fontWeight={500}>
+        If you want to delete account ,please check here.
+        </Box>
+        <Box mt="1rem">
+        <Button variant="contained" color="secondary">
+  Delete Account
+</Button>
+</Box>
       </TabPanel>
     </div>
       </main>
