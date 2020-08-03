@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
-    height: 224,
+    height: 512,
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
@@ -168,10 +168,11 @@ export default function Settings(props) {
           Settings
         </Typography>
         <div className={classes.root}>
-      <Tabs
+        <Tabs
         orientation="vertical"
         variant="scrollable"
         value={value}
+        indicatorColor="primary"
         onChange={handleChange}
         aria-label="Vertical tabs example"
         className={classes.tabs}
@@ -186,7 +187,17 @@ export default function Settings(props) {
       </Tabs>
       <TabPanel value={value} index={0}>
         Public info
-
+        <form className={classes.root} noValidate autoComplete="off">
+      <TextField id="standard-basic" label="Standard" />
+      <TextField
+          id="outlined-multiline-static"
+          label="Multiline"
+          multiline
+          rows={4}
+          defaultValue="Default Value"
+          variant="outlined"
+        />
+      </form>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Password
