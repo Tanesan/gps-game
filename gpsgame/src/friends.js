@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Analytics() {
+export default function Friends() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -112,7 +112,7 @@ export default function Analytics() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
-          Analytics
+          Friends
         </Typography>
       </main>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -31,10 +30,6 @@ import StarIcon from '@material-ui/icons/Star';
 import SecurityIcon from '@material-ui/icons/Security';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import { spacing } from '@material-ui/system';
-import MiniDrawers from './top.js';
-import Analytics from './analytics.js';
-import Friends from './friends.js';
-import Quests from './quests.js';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -99,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MiniDrawer() {
+export default function Quests() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -113,88 +108,12 @@ export default function MiniDrawer() {
   };
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-          Unique Nauts
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          {['DashBoad', 'Analytics', 'Friends', 'Map','Project', 'Setting'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{
-              index === 0 ?
-                <DashboardIcon />
-                :index === 1 ?
-                <TimelineIcon  />
-                :index === 2 ?
-                <GroupIcon />
-                :index === 3 ?
-                <MapIcon />
-                :index === 4 ?
-                <AccountTreeIcon />
-                :
-                <SettingsIcon />
-            }
-            </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <DashboardIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <Router>
-      <Route path='/top' component={MiniDrawers}/>
-      <Route path='/analytics' component={Analytics}/>
-      <Route path='/friends' component={Friends} />
-      <Route path='/quests' component={Quests} />
-      </Router>
-    </div>
+
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Typography paragraph>
+          Quests
+        </Typography>
+      </main>
   );
 }
