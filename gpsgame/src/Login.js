@@ -1,21 +1,14 @@
 import React　from 'react';
 import './App.css';
-//import './login.css';
-import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { spacing } from '@material-ui/system';
 import Box from '@material-ui/core/Box';
-import { shadows } from '@material-ui/system';
-import { borders } from '@material-ui/system';
 
   export default class Signin extends React.Component{
   constructor(props) {
@@ -88,14 +81,14 @@ import { borders } from '@material-ui/system';
 render() {
     return (
       <Container className="backcolor" component="main" maxWidth="md">
-        <Box mt="2rem" display={{ xs: 'block', sm: 'none' }}>
+        <Box mt="4rem" display={{ xs: 'block', sm: 'none' }}>
         </Box>
         <Box mt="8rem" display={{ xs: 'none', sm: 'block' }}>
           </Box>
-   <Grid container>
-     <Grid item xs={12} sm={6}>
+   <Grid container className="formchoice">
+     <Grid item sm={12} md={6}>
        </Grid>
-     <Grid item xs={12} sm={6}>
+     <Grid item sm={12} md={6}>
         <CssBaseline />
         <Box boxShadow={3} borderRadius="5%" className="zindex100">
           <Box px="4rem" py="1rem">
@@ -108,18 +101,16 @@ render() {
           </Box>
           </div>
           <Box mt="1rem">
-          <Grid container>
-              <Grid item xs>
+  
                 <Link href="#" variant="body2">
                  パスワードを忘れましたか？
                 </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                 初めての場合はアカウントを作成してください。
+    
+              初めての場合は
+                <Link href="/sigup" variant="body2">
+                 アカウントを作成
                 </Link>
-              </Grid>
-            </Grid>
+                してください。
             </Box>
           <form className={this.classes.form} noValidate onSubmit={() => this.authPost(this.state.email, this.state.password, this.state.remenber)}>
             <TextField
@@ -167,7 +158,6 @@ render() {
               type="submit"
               fullWidth
               variant="outlined"
-              color="success"
               onClick={() => { alert('clicked') }}
             >
               Google

@@ -16,21 +16,12 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import GroupIcon from '@material-ui/icons/Group';
 import MapIcon from '@material-ui/icons/Map';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import SettingsIcon from '@material-ui/icons/Settings';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
-import StarIcon from '@material-ui/icons/Star';
-import SecurityIcon from '@material-ui/icons/Security';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import { spacing } from '@material-ui/system';
 import MiniDrawers from './top.js';
 import Analytics from './analytics.js';
 import Friends from './friends.js';
@@ -39,7 +30,7 @@ import Maps from './maps.js';
 import Settings from './settings.js';
 import SignIn from './Login.js';
 import SignUp from './Signup.js';
-import Link from '@material-ui/core/Link';
+import Badge from '@material-ui/core/Badge';
 
 const drawerWidth = 240;
 
@@ -113,7 +104,6 @@ export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const preventDefault = (event) => event.preventDefault();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -124,6 +114,7 @@ export default function MiniDrawer() {
 
   return (
     <div className={classes.root}>
+       <link rel="stylesheet" href="https://use.typekit.net/aed6xos.css"></link>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -143,9 +134,11 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-          Unique Nauts
-          </Typography>
+          <Typography className="toplogo" variant="h6" noWrap>
+         {// <Link href="/top" onClick={preventDefault} color="inherit" rel="noreferrer" variant="inherit"> 
+         } Unique Nauts
+        {//   </Link>  
+ } </Typography>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -172,14 +165,18 @@ export default function MiniDrawer() {
         index === 0 ?
             <ListItemLink href="/top" key={text} rel="noreferrer">
               <ListItemIcon>
+              <Badge badgeContent={4} color="primary">
               <DashboardIcon />
+              </Badge>
               </ListItemIcon>
               <ListItemText primary={text} />
               </ListItemLink>
         :index === 1 ?          
               <ListItemLink href="/analytics" key={text} rel="noreferrer">
               <ListItemIcon>
+              <Badge badgeContent={99999} color="secondary">
                 <TimelineIcon  />
+                </Badge>
                 </ListItemIcon>
               <ListItemText primary={text} />
               </ListItemLink>
@@ -217,7 +214,7 @@ export default function MiniDrawer() {
         </List>
       </Drawer>
       <Router>
-          <div>
+          <div className="formchoice">
           <Route path='/top' component={MiniDrawers}/>
           <Route path='/analytics' component={Analytics}/>
            <Route path='/friends' component={Friends} />

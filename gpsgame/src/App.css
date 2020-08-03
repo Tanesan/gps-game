@@ -40,3 +40,22 @@
 .settingform{
   display: block;
 }
+.formchoice{
+  width: 90vw !important;
+}
+
+.toplogo{
+  font-family: caliban-std,sans-serif !important;
+  font-weight: 400!important;
+  font-style: normal!important;
+  font-size: 2.53rem!important;
+}
+
+.number{
+  font-family: Helvetica,a-otf-ud-shin-maru-go-pr6n,sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.settingpublic{
+  width: 60vw !important;
+}

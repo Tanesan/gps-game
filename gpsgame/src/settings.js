@@ -1,46 +1,26 @@
 import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import TimelineIcon from '@material-ui/icons/Timeline';
-import GroupIcon from '@material-ui/icons/Group';
-import MapIcon from '@material-ui/icons/Map';
-import AccountTreeIcon from '@material-ui/icons/AccountTree';
-import SettingsIcon from '@material-ui/icons/Settings';
 import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
-import StarIcon from '@material-ui/icons/Star';
-import SecurityIcon from '@material-ui/icons/Security';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import { spacing } from '@material-ui/system';
 import PropTypes from 'prop-types';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import Avatar from '@material-ui/core/Avatar';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Grid from '@material-ui/core/Grid';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
+  input: {
+    display: 'none',
+  },
   root: {
     display: 'flex',
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+    height: 512,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -86,6 +66,10 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9) + 1,
     },
   },
+  large: {
+    width: theme.spacing(15),
+    height: theme.spacing(15),
+  },
   toolbar: {
     display: 'flex',
     alignItems: 'center',
@@ -97,12 +81,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-  },
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-    display: 'flex',
-    height: 512,
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
@@ -146,17 +124,6 @@ function a11yProps(index) {
 
 export default function Settings(props) {
   const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-  
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -187,13 +154,38 @@ export default function Settings(props) {
         <Tab label="Delete account" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-      <Box fontSize="h4.fontSize" mb="1rem">
+      <Box fontSize="h4.fontSize" mb="1rem" className="settingpublic">
         Public info
         </Box>
         <Box fontWeight={500}>
         If you want to change your name ,please write here.
         </Box>
-        <form className={classes.root} className="settingform" autoComplete="off">
+        <form className="settingform" className="settingform" autoComplete="off">
+        <Grid container>
+<Grid item sm={12} md={6}>
+          <Box mt="4rem" mb="2rem">
+        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+</Box>
+<input
+        accept="image/*"
+        className={classes.input}
+        id="contained-button-file"
+        multiple
+        type="file"
+      />
+        <label htmlFor="contained-button-file">
+<Button
+        variant="contained"
+        color="default"
+        component="span"
+        className={classes.button}
+        startIcon={<CloudUploadIcon />}
+      >
+        Upload
+      </Button>
+      </label>
+      </Grid>
+      <Grid item sm={12} md={6}>
         <Box mt="1rem">
       <TextField id="standard-basic" 
               label="Username"
@@ -220,6 +212,8 @@ export default function Settings(props) {
   Save Changes
 </Button>
 </Box>
+</Grid>
+</Grid>
       </form>
       </TabPanel>
       <TabPanel value={value} index={1}>
