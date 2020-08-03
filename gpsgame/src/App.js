@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { render } from "react-dom";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import template from './template.js';
 import SignIn from './Login.js';
 import Apps from './Signup.js';
 import SignUp from './Signup.js';
-import MiniDrawer from './top.js';
+
+//import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -34,9 +36,9 @@ class App extends React.Component {
       */}
       <Router>
           <div>
-            <Route path='/login' component={SignIn}/>
-            <Route path='/signup' component={Apps, SignUp}/>
-            <Route path='/top' component={MiniDrawer}/>
+           <Route path='/top' component={template}/>
+           <Route path='/login' component={SignIn}/>
+           <Route path='/signup' component={SignUp}/>
           </div>
         </Router>
     </div>

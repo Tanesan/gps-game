@@ -1,199 +1,196 @@
-import React　from 'react';
-import './App.css';
-//import './login.css';
-import axios from 'axios';
-import Button from '@material-ui/core/Button';
+import React from 'react';
+import clsx from 'clsx';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { spacing } from '@material-ui/system';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import TimelineIcon from '@material-ui/icons/Timeline';
+import GroupIcon from '@material-ui/icons/Group';
+import MapIcon from '@material-ui/icons/Map';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import SettingsIcon from '@material-ui/icons/Settings';
 import Box from '@material-ui/core/Box';
-import { shadows } from '@material-ui/system';
-import { borders } from '@material-ui/system';
-
-  export default class Signin extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      email : '',
-      password: '',
-      remenber: ''
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
-
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value
-    });
-  }
+import Grid from '@material-ui/core/Grid';
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import StarIcon from '@material-ui/icons/Star';
+import SecurityIcon from '@material-ui/icons/Security';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import { spacing } from '@material-ui/system';
+import MiniDrawers from './top.js';
 
 
+const drawerWidth = 240;
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.email);
-    event.preventDefault();
-  }
-//バックエンド　json 受け渡し
-/*
-    authPost = () => {
-      //alert('A name was submitted: ' + this.state.remenber);
-      //受け取り側が素のPHP($_POST['']なのでstringifyする)
-      //Laravelとかならいらない
-      //var qs = require('qs');
-      axios
-        .post('http://127.0.0.1:5000/auth/api',{email: this.state.email, password: this.state.password, remenber: this.state.remenber})
-        .then((res) => { 
-          if(res.data.auth){
-            alert('認証OK');
-            alert(res.data.auth);
-          }else{
-            alert(res.data.auth);
-            alert('認証NG');
-          }
-        })
-        .catch(error => alert(error));
-    }
-*/
-  classes = makeStyles((theme) => ({
-      paper: {
-        marginTop: '10rem',
-       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      },
-      form: {
-        width: '100%', // Fix IE 11 issue.
-        marginTop: theme.spacing(1),
-        marginBottom: '8rem',
-      },
-      submit: {
-        margin: theme.spacing(3, 0, 2),
-      },
-    }));
-  
-  
-    //classes = useStyles();
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  menuButton: {
+    marginRight: 36,
+  },
+  hide: {
+    display: 'none',
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+  },
+  drawerOpen: {
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  drawerClose: {
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    overflowX: 'hidden',
+    width: theme.spacing(7) + 1,
+    [theme.breakpoints.up('sm')]: {
+      width: theme.spacing(9) + 1,
+    },
+  },
+  toolbar: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+}));
 
-render() {
-    return (
-      <Container className="backcolor" component="main" maxWidth="md">
-        <Box mt="2rem" display={{ xs: 'block', sm: 'none' }}>
-        </Box>
-        <Box mt="8rem" display={{ xs: 'none', sm: 'block' }}>
-          </Box>
-   <Grid container>
-     <Grid item xs={12} sm={6}>
-       </Grid>
-     <Grid item xs={12} sm={6}>
-        <CssBaseline />
-        <Box boxShadow={3} borderRadius="5%" className="zindex100">
-          <Box px="4rem" py="1rem">
-        <div className={this.classes.paper}>
-        <div>
-          <Box mt="1rem" fontWeight={900}>
-          <Typography component="h1" variant="h5">
-            ログイン
+export default function MiniDrawer() {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              [classes.hide]: open,
+            })}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap>
+          Unique Nauts
           </Typography>
-          </Box>
-          </div>
-          <Box mt="1rem">
-          <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                 パスワードを忘れましたか？
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                 初めての場合はアカウントを作成してください。
-                </Link>
-              </Grid>
-            </Grid>
-            </Box>
-          <form className={this.classes.form} noValidate onSubmit={() => this.authPost(this.state.email, this.state.password, this.state.remenber)}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="電子メールアドレス"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleInputChange}
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="パスワード"
-              type="password"
-              id="password"
-              value={this.state.password}
-              onChange={this.handleInputChange}
-              autoComplete="current-password"
-            />
-            <Box mt="2rem">
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={this.classes.submit}
-            //　onClick={() => this.handleSubmit()}
-            >
-              Sign In
-            </Button>
-          </Box>
-            <Box mt="2rem" mb="2rem" textAlign="center" fontWeight={500}>
-              または
-              </Box>
-
-          <Box mb="0.8rem">
-            <Button
-              type="submit"
-              fullWidth
-              variant="outlined"
-              color="success"
-              onClick={() => { alert('clicked') }}
-            >
-              Google
-            </Button>
-            </Box>
-            <Box mb="0.8rem">
-            <Button
-            variant="outlined"
-              type="submit"
-              fullWidth
-              color="secondary"
-              onClick={() => { alert('clicked') }}
-            >
-              FaceBook
-            </Button>
-            </Box>
-            <Box my="2rem" color="grey" fontSize={8}>
-            reCAPTCHA によって保護され、Google のプライバシーポリシーと利用規約に従って提供されます。
-            </Box>
-          </form>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="permanent"
+        className={clsx(classes.drawer, {
+          [classes.drawerOpen]: open,
+          [classes.drawerClose]: !open,
+        })}
+        classes={{
+          paper: clsx({
+            [classes.drawerOpen]: open,
+            [classes.drawerClose]: !open,
+          }),
+        }}
+      >
+        <div className={classes.toolbar}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
         </div>
-        </Box>
-        </Box>
-        </Grid>
-        </Grid>
-      </Container>
-    );
-  }
+        <Divider />
+        <List>
+          {['DashBoad', 'Analytics', 'Friends', 'Map','Project', 'Setting'].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>{
+              index === 0 ?
+                <DashboardIcon />
+                :index === 1 ?
+                <TimelineIcon  />
+                :index === 2 ?
+                <GroupIcon />
+                :index === 3 ?
+                <MapIcon />
+                :index === 4 ?
+                <AccountTreeIcon />
+                :
+                <SettingsIcon />
+            }
+            </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>{index % 2 === 0 ? <DashboardIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+      <Router>
+      <Route path='/top' component={MiniDrawers}/>
+      </Router>
+    </div>
+  );
 }

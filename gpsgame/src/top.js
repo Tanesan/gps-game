@@ -108,82 +108,7 @@ export default function MiniDrawer() {
   };
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-          Unique Nauts
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          {['DashBoad', 'Analytics', 'Friends', 'Map','Project', 'Setting'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{
-              index === 0 ?
-                <DashboardIcon />
-                :index === 1 ?
-                <TimelineIcon  />
-                :index === 2 ?
-                <GroupIcon />
-                :index === 3 ?
-                <MapIcon />
-                :index === 4 ?
-                <AccountTreeIcon />
-                :
-                <SettingsIcon />
-            }
-            </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <DashboardIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
@@ -294,6 +219,5 @@ export default function MiniDrawer() {
         </Grid>
         </Grid>
       </main>
-    </div>
   );
 }
