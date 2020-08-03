@@ -111,9 +111,9 @@ export default function MiniDrawer() {
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>
+        <Box fontSize="h5.fontSize" mb="1rem">
           Welcome Back,Mr.aaa.
-        </Typography>
+        </Box>
 
 
 
