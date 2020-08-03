@@ -41,6 +41,7 @@ class App extends React.Component {
            <Route path='/settings' component={template}/>
            <Route path='/quests' component={template}/>
            <Route path='/friends' component={template}/>
+           <Route path='/map' component={template}/>
            <Route path='/login' component={SignIn}/>
            <Route path='/signup' component={SignUp}/>
           </div>

@@ -35,7 +35,10 @@ import MiniDrawers from './top.js';
 import Analytics from './analytics.js';
 import Friends from './friends.js';
 import Quests from './quests.js';
+import Maps from './maps.js';
 import Settings from './settings.js';
+import Link from '@material-ui/core/Link';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -100,11 +103,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
+
 export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const preventDefault = (event) => event.preventDefault();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -160,33 +167,50 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {['DashBoad', 'Analytics', 'Friends', 'Map','Settings', 'Setting'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{
-              index === 0 ?
-                <DashboardIcon />
-                :index === 1 ?
+        index === 0 ?
+            <ListItemLink href="/top" key={text} rel="noreferrer">
+              <ListItemIcon>
+              <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary={text} />
+              </ListItemLink>
+        :index === 1 ?          
+              <ListItemLink href="/analytics" key={text} rel="noreferrer">
+              <ListItemIcon>
                 <TimelineIcon  />
+                </ListItemIcon>
+              <ListItemText primary={text} />
+              </ListItemLink>
                 :index === 2 ?
+                <ListItemLink href="/friends" key={text} rel="noreferrer">
+                <ListItemIcon>
                 <GroupIcon />
+                </ListItemIcon>
+              <ListItemText primary={text} />
+              </ListItemLink>
                 :index === 3 ?
+              <ListItemLink href="/map" key={text} rel="noreferrer">
+            <ListItemIcon>
                 <MapIcon />
+                </ListItemIcon>
+              <ListItemText primary={text} />
+              </ListItemLink>
                 :index === 4 ?
+                <ListItemLink href="/quests" key={text} rel="noreferrer">
+              <ListItemIcon>
                 <AccountTreeIcon />
+                </ListItemIcon>
+              <ListItemText primary={text} />
+              </ListItemLink>
                 :
+                <ListItemLink href="/settings" key={text} rel="noreferrer">
+                <ListItemIcon>
                 <SettingsIcon />
-            }
-            </ListItemIcon>
+                </ListItemIcon>
               <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <DashboardIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+              </ListItemLink>
+            
+        //   </ListItem> 
           ))}
         </List>
       </Drawer>
@@ -194,6 +218,7 @@ export default function MiniDrawer() {
       <Route path='/top' component={MiniDrawers}/>
       <Route path='/analytics' component={Analytics}/>
       <Route path='/friends' component={Friends} />
+      <Route path='/map' component={Maps} />
       <Route path='/quests' component={Quests} />
       <Route path='/settings' component={Settings} />
       </Router>
