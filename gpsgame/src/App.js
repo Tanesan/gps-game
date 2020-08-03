@@ -37,6 +37,8 @@ class App extends React.Component {
       <Router>
           <div>
            <Route path='/top' component={template}/>
+           <Route path='/analytics' component={template}/>
+           <Route path='/friends' component={template}/>
            <Route path='/login' component={SignIn}/>
            <Route path='/signup' component={SignUp}/>
           </div>
