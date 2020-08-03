@@ -37,3 +37,6 @@
 .boxcolor{
   background-color: #33ffff52 !important;
 }
+.settingform{
+  display: block;
+}

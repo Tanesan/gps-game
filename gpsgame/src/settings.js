@@ -33,6 +33,9 @@ import { spacing } from '@material-ui/system';
 import PropTypes from 'prop-types';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -186,17 +189,40 @@ export default function Settings(props) {
         <Tab label="Delete account" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
+      <Box fontSize="h4.fontSize" mb="1rem">
         Public info
-        <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Standard" />
+        </Box>
+        <Box fontWeight={500}>
+        If you want to change your name ,please write here.
+        </Box>
+        <form className={classes.root} className="settingform" autoComplete="off">
+        <Box mt="1rem">
+      <TextField id="standard-basic" 
+              label="Username"
+              margin="normal"
+              required
+              fullWidth
+              autoFocus
+               />
+</Box>
+<Box mt="1rem">
       <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Biography"
           multiline
           rows={4}
-          defaultValue="Default Value"
+          required
+          fullWidth
+          autoFocus
+          defaultValue=""
           variant="outlined"
         />
+        </Box>
+        <Box mt="1rem">
+        <Button variant="contained" color="primary">
+  Save Changes
+</Button>
+</Box>
       </form>
       </TabPanel>
       <TabPanel value={value} index={1}>
