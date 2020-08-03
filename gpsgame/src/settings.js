@@ -213,7 +213,6 @@ export default function Settings(props) {
           rows={4}
           required
           fullWidth
-          autoFocus
           defaultValue=""
           variant="outlined"
         />
@@ -250,7 +249,6 @@ export default function Settings(props) {
               type="password"
               required
               fullWidth
-              autoFocus
                />
                </Box>
         <Box mt="1rem">
