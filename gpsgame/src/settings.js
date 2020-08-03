@@ -167,9 +167,7 @@ export default function Settings(props) {
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>
-          Settings
-        </Typography>
+
         <div className={classes.root}>
         <Tabs
         orientation="vertical"
