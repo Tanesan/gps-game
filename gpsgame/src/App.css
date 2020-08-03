@@ -34,14 +34,6 @@
     transform: rotate(360deg);
   }
 }
-
-.backcolor{
-  background-color: #4a3892;
-}
-html body{
-  background-color: #4a3892;
-  z-index:1000;
-}
-.zindex100{
-  background-color: #ffffff!important;
+.boxcolor{
+  background-color: #33ffff52 !important;
 }

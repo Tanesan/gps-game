@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { render } from "react-dom";
-import './App.css';
 import axios from "axios";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SignIn from './Login.js';
 import Apps from './Signup.js';
 import SignUp from './Signup.js';
-
+import MiniDrawer from './top.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,6 +36,7 @@ class App extends React.Component {
           <div>
             <Route path='/login' component={SignIn}/>
             <Route path='/signup' component={Apps, SignUp}/>
+            <Route path='/top' component={MiniDrawer}/>
           </div>
         </Router>
     </div>
