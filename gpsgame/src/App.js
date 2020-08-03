@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { render } from "react-dom";
 import './App.css';
+import axios from "axios";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import SignIn from './Login.js';
+import Apps from './Signup.js';
+import SignUp from './Signup.js';
 
-function App() {
-  return (
-    <div className="App">
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+   this.state = { time: 0 };
+  }
+
+  componentDidMount() {
+
+    axios.get('/time').then((res) => {
+    console.log(res.data);
+    this.setState(res.data);
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+      {/*
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        ... no changes in this part ...
+
+        <p>The current time is {this.state.time}.</p>
       </header>
+      */}
+      <Router>
+          <div>
+            <Route path='/login' component={SignIn}/>
+            <Route path='/signup' component={Apps, SignUp}/>
+          </div>
+        </Router>
     </div>
   );
+    }
 }
 
 export default App;
