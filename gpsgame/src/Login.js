@@ -105,7 +105,6 @@ render() {
                 <Link href="#" variant="body2">
                  パスワードを忘れましたか？
                 </Link>
-    
               初めての場合は
                 <Link href="/sigup" variant="body2">
                  アカウントを作成

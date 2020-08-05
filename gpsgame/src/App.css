@@ -49,6 +49,7 @@
   font-weight: 400!important;
   font-style: normal!important;
   font-size: 2.53rem!important;
+  flex-grow: 5;
 }
 
 .number{
@@ -58,4 +59,8 @@
 }
 .settingpublic{
   width: 60vw !important;
+}
+
+.menulogin{
+  flex-grow: 1
 }

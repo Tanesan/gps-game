@@ -30,13 +30,17 @@ import Maps from './maps.js';
 import Settings from './settings.js';
 import SignIn from './Login.js';
 import SignUp from './Signup.js';
+import './App.css';
 import Badge from '@material-ui/core/Badge';
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    flexGrow: 1,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -107,6 +111,7 @@ export default function MiniDrawer() {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
+  const preventDefault = (event) => event.preventDefault();
 
   const handleDrawerClose = () => {
     setOpen(false);
@@ -139,6 +144,9 @@ export default function MiniDrawer() {
          } Unique Nauts
         {//   </Link>  
  } </Typography>
+
+ <Button href="/login" color="inherit" className="menulogin">Login</Button>
+  
         </Toolbar>
       </AppBar>
       <Drawer
