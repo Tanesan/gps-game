@@ -40,10 +40,12 @@
 .settingform{
   display: block;
 }
+
+@media screen and (min-width: 960px) {
 .formchoice{
   width: 90vw !important;
 }
-
+}
 .toplogo{
   font-family: caliban-std,sans-serif !important;
   font-weight: 400!important;

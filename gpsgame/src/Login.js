@@ -81,17 +81,17 @@ import Box from '@material-ui/core/Box';
 render() {
     return (
       <Container className="backcolor" component="main" maxWidth="md">
-        <Box mt="4rem" display={{ xs: 'block', sm: 'none' }}>
+        <Box mt="5rem" display={{ xs: 'block', sm: 'none' }}>
         </Box>
         <Box mt="8rem" display={{ xs: 'none', sm: 'block' }}>
           </Box>
    <Grid container className="formchoice">
-     <Grid item sm={12} md={6}>
+     <Grid item xs={12} md={5} lg={6}>
        </Grid>
-     <Grid item sm={12} md={6}>
+     <Grid item xs={12} md={6} lg={4}>
         <CssBaseline />
         <Box boxShadow={3} borderRadius="5%" className="zindex100">
-          <Box px="4rem" py="1rem">
+          <Box px="2rem" py="1rem">
         <div className={this.classes.paper}>
         <div>
           <Box mt="1rem" fontWeight={900}>
@@ -101,7 +101,6 @@ render() {
           </Box>
           </div>
           <Box mt="1rem">
-  
                 <Link href="#" variant="body2">
                  パスワードを忘れましたか？
                 </Link>
