@@ -86,9 +86,9 @@ render() {
         <Box mt="8rem" display={{ xs: 'none', sm: 'block' }}>
           </Box>
    <Grid container className="formchoice">
-     <Grid item xs={12} md={5} lg={6}>
-       </Grid>
-     <Grid item xs={12} md={6} lg={4}>
+   <Grid item xs={12} md={6} lg={6}>
+     </Grid>
+   <Grid item xs={12} md={5} lg={4}>
         <CssBaseline />
         <Box boxShadow={3} borderRadius="5%" className="zindex100">
           <Box px="2rem" py="1rem">
@@ -105,7 +105,7 @@ render() {
                  パスワードを忘れましたか？
                 </Link>
               初めての場合は
-                <Link href="/sigup" variant="body2">
+                <Link href="/signup" variant="body2">
                  アカウントを作成
                 </Link>
                 してください。

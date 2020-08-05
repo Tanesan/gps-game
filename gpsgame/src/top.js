@@ -6,6 +6,8 @@ import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import StarIcon from '@material-ui/icons/Star';
 import SecurityIcon from '@material-ui/icons/Security';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
 
 
 const drawerWidth = 240;
@@ -86,7 +88,8 @@ export default function MiniDrawer() {
 
         <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
-            <Box boxShadow={3} borderRadius="5%" className="boxcolor">
+        <CardActionArea>
+            <Box boxShadow={10} borderRadius="5%" className="boxcolor" href="/">
             <Grid container>
         <Grid item xs={6} sm={3}> 
         <Box my="10%">
@@ -103,9 +106,11 @@ export default function MiniDrawer() {
             </Grid>
             </Grid>
                 </Box>
+                </CardActionArea>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-        <Box boxShadow={3} borderRadius="5%" className="boxcolor">
+        <CardActionArea>
+        <Box boxShadow={10} borderRadius="5%" className="boxcolor">
        <Box mx="auto">
             <Grid container>
         <Grid item xs={6} sm={3}> 
@@ -124,9 +129,11 @@ export default function MiniDrawer() {
             </Grid>
             </Box>
                 </Box>
+                </CardActionArea>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-        <Box boxShadow={3} borderRadius="5%" className="boxcolor">
+        <CardActionArea>
+        <Box boxShadow={10} borderRadius="5%" className="boxcolor">
             <Grid container>
         <Grid item xs={6} sm={3}> 
         <Box my="10%">
@@ -143,9 +150,11 @@ export default function MiniDrawer() {
             </Grid>
             </Grid>
                 </Box>
+                </CardActionArea>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-        <Box boxShadow={3} borderRadius="5%" className="boxcolor">
+        <CardActionArea>
+        <Box boxShadow={10} borderRadius="5%" className="boxcolor">
             <Grid container>
         <Grid item xs={6} sm={3}> 
         <Box my="10%">
@@ -162,26 +171,33 @@ export default function MiniDrawer() {
             </Grid>
             </Grid>
                 </Box>
+                </CardActionArea>
         </Grid>
         </Grid>
 
 
         <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
-        <Box boxShadow={3} borderRadius="5%" className="boxcolor">
+        <Box boxShadow={10} borderRadius="5%" className="boxcolor">
+        <CardActionArea>
             Statistics
+        </CardActionArea>
         </Box>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <Box boxShadow={3} borderRadius="5%" className="boxcolor">
+        <Box boxShadow={10} borderRadius="5%" className="boxcolor">
+        <CardActionArea>
             Quest 受注
+          </CardActionArea>
         </Box>
         </Grid>
         </Grid>
         <Grid container spacing={3}>
         <Grid item xs={12} sm={12}>
-        <Box boxShadow={3} borderRadius="5%" className="boxcolor">
+        <Box boxShadow={10} borderRadius="5%" className="boxcolor">
+        <CardActionArea>
             最後に訪れた店
+         </CardActionArea>
         </Box>
         </Grid>
         </Grid>
