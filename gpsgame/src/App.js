@@ -33,7 +33,7 @@ import SignUp from './Signup.js';
 import './App.css';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
+
 
 const drawerWidth = 240;
 
@@ -111,7 +111,7 @@ export default function MiniDrawer() {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-  const preventDefault = (event) => event.preventDefault();
+ // const preventDefault = (event) => event.preventDefault();
 
   const handleDrawerClose = () => {
     setOpen(false);

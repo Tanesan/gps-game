@@ -160,7 +160,7 @@ export default function Settings(props) {
         <Box fontWeight={500}>
         If you want to change your name ,please write here.
         </Box>
-        <form className="settingform" className="settingform" autoComplete="off">
+        <form className="settingform" autoComplete="off">
         <Grid container>
 <Grid item sm={12} md={6}>
           <Box mt="4rem" mb="2rem">

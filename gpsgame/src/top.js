@@ -7,7 +7,6 @@ import StarIcon from '@material-ui/icons/Star';
 import SecurityIcon from '@material-ui/icons/Security';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 
 
 const drawerWidth = 240;
